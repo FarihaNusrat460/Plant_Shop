@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Equipment.apps.EquipmentConfig',
     'Blog.apps.BlogConfig',
     'Plant.apps.PlantConfig',
+    'Order.apps.OrderConfig',
 
 
 ]
