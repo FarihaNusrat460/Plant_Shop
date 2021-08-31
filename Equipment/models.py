@@ -5,7 +5,7 @@ from django.db import models
 class Equipment(models.Model):
     equipment_name = models.CharField(max_length=100, default="")
     price = models.IntegerField(blank=True)
-    picture = models.ImageField(upload_to='images/equipments/',blank=True)
+    picture = models.ImageField(upload_to='images/equipments/',null=True,blank=True)
 
     def __str__(self):
         return self.equipment_name
