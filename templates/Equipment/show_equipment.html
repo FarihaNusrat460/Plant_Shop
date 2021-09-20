@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipments</title>
+</head>
+<body>
+
+{% for item in all_equipments %}
+<p>
+    Equipment name : {{ item.equipment_name }} <br>
+    Price : {{ item.price }}<br>
+    Picture : {{ item.picture }}<br>
+</p>
+{% endfor %}
+
+
+</body>
+</html>

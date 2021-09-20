@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from User import views as user_views
 from Plant import views as plant_views
+from Equipment import views as equipment_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Registration/',user_views.registration),
     path('Homepage/',plant_views.showHome),
+    path('Equipment/',equipment_views.showEquipmenmts),
     path('accounts/',include('django.contrib.auth.urls'))
 ]
