@@ -18,6 +18,8 @@ from django.urls import path, include
 from User import views as user_views
 from Plant import views as plant_views
 from Equipment import views as equipment_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -26,4 +28,4 @@ urlpatterns = [
     path('Homepage/',plant_views.showHome),
     path('Equipment/',equipment_views.showEquipmenmts),
     path('accounts/',include('django.contrib.auth.urls'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
