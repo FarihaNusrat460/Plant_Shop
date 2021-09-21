@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <title>ShowBlogs</title>
 </head>
+{% load static %}
 <body>
+
+<h2>Here Some Blogs!</h2>
+
+{% for b in blogs %}
+<p>
+    <img src="{{ b.image.url }}"  alt="..." height="300" width="250"><br>
+    <b><h2>{{ b.title }}</h2></b>
+    <b><h3>Bloggers_name : {{ b.bloggers_name }}</h3></b><br>
+    <b><h3>Blog : {{ b.blog }}</h3></b><br>
+</p>
+{% endfor %}
+
 
 </body>
 </html>
