@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <title>Equipments</title>
 </head>
+{% load static %}
 <body>
 
-{% for item in all_equipments %}
+<h2>EQUIPMENTS</h2>
+
+{% for e in all_equipments %}
 <p>
-    Equipment name : {{ item.equipment_name }} <br>
-    Price : {{ item.price }}<br>
-    Picture : {{ item.picture }}<br>
+    <b><h2>Equipment Id : {{ e.id }}</h2></b>
+    <b><h3>Equipment Name : {{ e.equipment_name }}</h3></b>
+    Price : {{ e.price }}<br>
+   <img src="{{ e.picture.url }}"  alt="..." height="300" width="250">
 </p>
 {% endfor %}
 
