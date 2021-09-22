@@ -28,6 +28,7 @@ urlpatterns = [
     path('Registration/',user_views.registration),
     path('Homepage/',plant_views.showHome),
     path('Equipment/',equipment_views.showEquipmenmts),
+    path('Plant/',plant_views.showPlants),
     path('ShowBlogs/', Blog_views.showBlog,name='ShowBlogs'),
     path('accounts/',include('django.contrib.auth.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

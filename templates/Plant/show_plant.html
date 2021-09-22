@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plants</title>
+</head>
+{% load static %}
+<body>
+
+<h2>PlANTS</h2>
+
+{% for p in all_plants %}
+<p>
+    <b><h2>Plant Id : {{ p.id }}</h2></b>
+    <b><h3>Plant Name : {{ p.plant_name }}</h3></b><br>
+   <img src="{{ p.picture.url }}"  alt="..." height="300" width="250"><br>
+    <h3>Price : {{ p.price }}</h3>
+</p>
+{% endfor %}
+
+
+</body>
+</html>
