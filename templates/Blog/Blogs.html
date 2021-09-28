@@ -1,23 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ShowBlogs</title>
-</head>
 {% load static %}
-<body>
 
-<h2>Here Some Blogs!</h2>
-
-{% for b in blogs %}
-<p>
-    <img src="{{ b.image.url }}"  alt="..." height="300" width="250"><br>
-    <b><h2>{{ b.title }}</h2></b>
-    <b><h3>Bloggers_name : {{ b.bloggers_name }}</h3></b><br>
-    <b><h3>Blog : {{ b.blog }}</h3></b><br>
-</p>
-{% endfor %}
+{% block content %}
 
 
-</body>
-</html>
+   <center> <h1 style="color: black"> <b><i>Bloom Your Blogs...</b></h1></i></center><br>
+    <center><img src="https://www.platthillnursery.com/wp-content/uploads/2021/01/platt-hill-2021-garden-bloggers-influencers-a-way-to-garden-phone-leaves.jpg" hight="40" width="1000" class="img-fluid" alt="Responsive image"></center><br><br>
+    <br>
+    <br>
+
+
+
+    <center><h2 style="color: black"></h2></center><br>
+    <p><h1><i>Welcome to Beautiful blossom's garden blog just simply with the intent of creating your dream garden in your own yard. It shows you that no matter the size of your yard you can grow your dream garden. You will be inspired by beautiful botanical artwork, writing, and crafts. Here you will also find instruction and help related to gardening projects, photography, personal garden writing projects, and many more.<br>
+    So, explore the world of gardening. Grow your own!</h1></p></i>
+
+
+
+    <p><h6>
+       <i> </i>
+    </p></h6><br>
+    <br>
+    <br>
+   <i><h1 style="color: black">Here Some Blogs!</i></h1><br>
+    <br>
+
+<div class="card-columns">
+    {% for b in blogs %}
+             <div class="card">
+                <img src="{{ b.image.url }}" class="card-img-top" alt="..." height="300" width="250">
+                <div class="card-body">
+                  <h5 class="card-title"><h2>{{ b.title }}</h2></h5>
+                  <p class="card-text"> <h3>{{ b.bloggers_name }}</h3></p>
+                    <p class="card-text"> <h3>{{ b.blog }}</h3></p><br>
+
+
+{#                         http://127.0.0.1:8000/products/#}
+{#                <a href="{{ p.id }}">#}
+{#                     http://127.0.0.1:8000/products/product_id#}
+{#                    <button type="button" class="btn btn-outline-primary">Details</button>#}
+{#                </a>#}
+                    </div>
+      </div>
+
+
+
+    {% endfor %}
+
+
+        </div>
+{% endblock content %}
