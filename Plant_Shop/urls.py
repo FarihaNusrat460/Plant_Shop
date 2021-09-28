@@ -16,8 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from User import views as user_views
-from Plant import views as plant_views
-from Equipment import views as equipment_views
+from Product import views as product_views
 from Blog import views as Blog_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,9 +25,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Registration/',user_views.registration),
-    path('Homepage/',plant_views.showHome),
-    path('Equipment/',equipment_views.showEquipmenmts),
-    path('Plant/',plant_views.showPlants),
+    path('Homepage/',product_views.showHome,name='Homepage'),
+    path('Product/',product_views.showProducts,name='Product'),
+
     path('ShowBlogs/', Blog_views.showBlog,name='ShowBlogs'),
     path('accounts/',include('django.contrib.auth.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
