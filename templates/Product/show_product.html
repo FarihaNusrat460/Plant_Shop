@@ -1,40 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Beautiful Blooms</title>
-</head>
+
 
 {% load static %}
-<body>
+
 {% block content %}
 
 
-   <center> <h1 style="color: black"> Beautiful Blooms</h1></center><br>
+   <center> <h1 style="color: black"> <b>Beautiful Blooms</b></h1></center><br>
     <center><img src="https://tul.imgix.net/content/article/a_list_images/GREENASSEMBLEY-PRODUCTSHOOT-OCT2018-136.jpg?auto=format,compress&w=1200&h=630&fit=crop" hight="50" width="1500" class="img-fluid" alt="Responsive image"></center><br><br>
     <br>
     <br>
 
 
 
-    <center><h2 style="color: black">What is Artwork?</h2></center><br>
-    <p><h6> <i>Art is a highly diverse range of human activities engaged in creating visual,
-            auditory, or performed artifacts— artworks—that express the author’s imaginative or technical skill,
-            and are intended to be appreciated for their beauty or emotional power. Art may be characterized in
-            terms of mimesis (its representation of reality), expression, communication of emotion, or other
-            qualities. Though the definition of what constitutes art is disputed and has changed over time,
-            general descriptions center on the idea of imaginative or technical skill stemming from human agency
-            and creation.</h6></p></i>
+    <center><h2 style="color: black"></h2></center><br>
+    <p><h1><i>Whether you’re starting seeds, nurturing houseplants, or growing food indoors/outdoors, we have the helplines you need!
+    We have plants, seeds, gardening tools to create your garden. We have indoor/outdoor decors to enlighten your dream garden.<br>
+    So just sneak into our website to discover which one is right for you!</h1></p></i>
 
 
 
     <p><h6>
-       <i> Art is often examined through the interaction of the principles and elements of art.
-        The principles of art include movement, unity, harmony, variety, balance, contrast,
-        proportion and pattern. The elements include texture, form, space, shape, color, value and line.
-        The various interactions between the elements and principles of art help artists to organize
-        sensorially pleasing works of art while also giving viewers a framework within which to analyze and
-        discuss aesthetic ideas.</i>
+       <i> </i>
     </p></h6><br>
     <br>
     <br>
@@ -42,20 +28,20 @@
     <br>
 
 <div class="card-columns">
-
-    {% for p in all_plants %}
+    {% for p in all_products %}
              <div class="card">
-                <img src="{{ p.picture.url }}" class="card-img-top" alt="..." height="300 width="250">
+                <img src="{{ p.picture.url }}" class="card-img-top" alt="..." height="300" width="250">
                 <div class="card-body">
-                  <h5 class="card-title">{{ p.id }}</h5>
-                  <p class="card-text"> <h3>{{ p.plant_name }}</h3></p>
-                    <p class="card-text"> <h3>{{ p.price }}</h3></p>
+                  <h5 class="card-title"><h2>{{ p.id }}</h2></h5>
+                  <p class="card-text"> <h2>{{ p.product_name }}</h2></p>
+                    <p class="card-text"> <h3>{{ p.price }}</h3></p><br>
+
 
 {#                         http://127.0.0.1:8000/products/#}
-                <a href="{{ p.id }}">
+{#                <a href="{{ p.id }}">#}
 {#                     http://127.0.0.1:8000/products/product_id#}
-                    <button type="button" class="btn btn-outline-primary">Details</button>
-                </a>
+{#                    <button type="button" class="btn btn-outline-primary">Details</button>#}
+{#                </a>#}
                     </div>
       </div>
 
@@ -69,6 +55,3 @@
 
 
 
-
-</body>
-</html>
