@@ -29,5 +29,6 @@ urlpatterns = [
     path('Product/',product_views.showProducts,name='Product'),
 
     path('ShowBlogs/', Blog_views.showBlog,name='ShowBlogs'),
+    path('InsertBlogs/', Blog_views.insertBlog,name='InsertBlogs'),
     path('accounts/',include('django.contrib.auth.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
