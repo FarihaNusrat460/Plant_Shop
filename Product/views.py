@@ -25,3 +25,30 @@ def showProducts(request):
 
 def showHome(request):
     return render(request, 'Homepage/show_homepage.html')
+
+
+def showDetails(request, product_id):
+
+    searched_product = get_object_or_404(Product, id=product_id)
+
+    # form = ReviewForm()
+    #
+    # if request.method == "POST":
+    #     form = ReviewForm(request.POST)
+    #
+    #     if form.is_valid:
+    #         instance = form.save(commit=False)
+    #         instance.user = request.user
+    #         instance.save()
+    #
+    #         searched_plant.reviews.add(instance)
+    #         searched_plant.save()
+
+    context = {
+        'search': searched_product,
+        # 'form': form
+    }
+    return render(request, 'Product/show_product_details.html', context)
+
+
+

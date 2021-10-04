@@ -27,6 +27,7 @@ urlpatterns = [
     path('Registration/',user_views.registration),
     path('Homepage/',product_views.showHome,name='Homepage'),
     path('Product/',product_views.showProducts,name='Product'),
+    path('Product/<int:product_id>', product_views.showDetails, name='detail_view'),
 
     path('ShowBlogs/', Blog_views.showBlog,name='ShowBlogs'),
     path('InsertBlogs/', Blog_views.insertBlog,name='InsertBlogs'),

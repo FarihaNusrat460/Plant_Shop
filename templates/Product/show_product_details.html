@@ -1,0 +1,50 @@
+
+{% block content  %}
+
+
+        <div class="card bg-light mb-2`" >
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{{ search.picture.url }}" class="card-img" alt="...">
+            </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ search.id }}</h5>
+                <p class="card-text">
+                  <h3> Title: </h3><h4> {{ search.plant_name }}</h4> <br>
+                   <h3> Medium: </h3> {{ search.price }} <br>
+
+{#                  <form method="POST">#}
+{#                            {% csrf_token %}#}
+{#                            {{ form.as_p }}#}
+{#                            <button type="submit">Review</button>#}
+{#                    </form>#}
+
+
+                </p>
+                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+{#  updatecart/product_id#}
+{#                  <a href="{% url 'update-cart' search.id %}" >Add to Cart</a>#}
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+{#   <div class="container">#}
+{#        {% for review in search.reviews.all %}#}
+{#            User: {{ review.user.username }}<br>#}
+{#            Rating: {{ review.rating }} <br>#}
+{#            Comment: {{ review.comment }} <br><br><br>#}
+{#        {% endfor %}#}
+{#    </div>#}
+
+
+{% endblock content %}
+
