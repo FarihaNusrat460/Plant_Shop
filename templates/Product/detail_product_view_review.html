@@ -1,0 +1,48 @@
+{% block content  %}
+
+
+        <div class="card bg-light mb-2`" >
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{{ search.picture.url }}" class="card-img" alt="...">
+            </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ search.product_name }}</h5>
+                <p class="card-text">
+                    {{ search.product_name }} <br>
+                    {{ search.id }} <br>
+                    {{ search.price}} <br>
+
+
+                </p>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+     <div class="container">
+        {% for review in search.reviews.all %}
+            User: {{ review.user.username }}<br>
+            Rating: {{ review.rating }} <br>
+            Comment: {{ review.comment }} <br><br><br>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+        {% if already_reviewed == False %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Review</button>
+            </form>
+        {% else %}
+            <h2>You have already submitted a review</h2>
+        {% endif %}
+    </div>
+
+
+{% endblock content %}

@@ -12,14 +12,14 @@
               <div class="card-body">
                 <h5 class="card-title">{{ search.id }}</h5>
                 <p class="card-text">
-                  <h3> Title: </h3><h4> {{ search.plant_name }}</h4> <br>
+                  <h3> Title: </h3><h4> {{ search.product_name }}</h4> <br>
                    <h3> Medium: </h3> {{ search.price }} <br>
 
-{#                  <form method="POST">#}
-{#                            {% csrf_token %}#}
-{#                            {{ form.as_p }}#}
-{#                            <button type="submit">Review</button>#}
-{#                    </form>#}
+                  <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">Review</button>
+                    </form>
 
 
                 </p>
@@ -37,13 +37,13 @@
 
 
 
-{#   <div class="container">#}
-{#        {% for review in search.reviews.all %}#}
-{#            User: {{ review.user.username }}<br>#}
-{#            Rating: {{ review.rating }} <br>#}
-{#            Comment: {{ review.comment }} <br><br><br>#}
-{#        {% endfor %}#}
-{#    </div>#}
+   <div class="container">
+        {% for review in search.reviews.all %}
+            User: {{ review.user.username }}<br>
+            Rating: {{ review.rating }} <br>
+            Comment: {{ review.comment }} <br><br><br>
+        {% endfor %}
+    </div>
 
 
 {% endblock content %}

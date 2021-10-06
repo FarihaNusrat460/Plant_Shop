@@ -31,5 +31,16 @@ urlpatterns = [
 
     path('ShowBlogs/', Blog_views.showBlog,name='ShowBlogs'),
     path('InsertBlogs/', Blog_views.insertBlog,name='InsertBlogs'),
-    path('accounts/',include('django.contrib.auth.urls'))
+    path('accounts/',include('django.contrib.auth.urls')),
+
+    path('cart/', product_views.view_cart, name='cart'),
+
+    path('updatecart/<int:product_id>', product_views.update_cart, name='update-cart'),
+
+    path('deletefromcart/<int:product_id>', product_views.delete_from_cart, name='delete-from-cart'),
+    path('orderproduct/<int:product_id>', product_views.make_order, name='order-product'),
+
+    path('bkash/<int:product_id>', product_views.bkash_order, name='bkash-order-product'),
+
+    path('myorders/', product_views.my_orders, name='myorders'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
