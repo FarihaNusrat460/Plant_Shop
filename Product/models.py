@@ -62,7 +62,7 @@ class Order(models.Model):
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ManyToManyField(Product)  # can be blank or null by default
+    product = models.ManyToManyField(Product,blank=True,null=True)  # can be blank or null by default
     created_date = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated_date = models.DateTimeField(auto_now_add=False, auto_now=True)
 

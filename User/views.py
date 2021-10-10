@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
-from Product.models import Cart
 from django.contrib.auth.models import User
+from Product.models import Cart
+
 # Create your views here.
 
 def registration(request):
@@ -29,4 +29,4 @@ def registration(request):
         'form' : form
     }
 
-    return render(request, 'User/registration.html', context)
+    return render(request,'User/registration.html', context)

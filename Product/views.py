@@ -1,12 +1,11 @@
+import cart as cart
 from django.shortcuts import render, get_object_or_404, redirect,HttpResponseRedirect
-from django.contrib.auth.models import User
-from .models import Product,Order,Cart
-from .forms import  ReviewForm
+
+from .models import Product,Cart,Order,Review
 
 from django.contrib.auth.decorators import login_required
 
-
-
+from .forms import ProductForm, ReviewForm
 
 # Create your views here.
 
@@ -14,7 +13,7 @@ def showProducts(request):
 
     products = Product.objects.all()
     if request.method == 'POST':
-        products= Product.objects.filter(plant_name__icontains=request.POST['search'])
+        products= Product.objects.filter(product_name__icontains=request.POST['search'])
 
 
     context = {
@@ -26,6 +25,7 @@ def showProducts(request):
 
 def showHome(request):
     return render(request, 'Homepage/show_homepage.html')
+
 
 
 def showDetails(request, product_id):
@@ -59,28 +59,69 @@ def showDetails2(request, product_id):
     #searched_product = Product.objects.get(id=product_id) #sure one return
     #print(searched_product)
 
-    searched_plant = Product.objects.filter(id=product_id)  # many return
+    searched_product = Product.objects.filter(id=product_id)  # many return
 
     #searched_product = get_object_or_404(Product, id=product_id)
     #print(searched_product)
 
 
 
-    if len(searched_plant) == 0:
+    if len(searched_product) == 0:
         does_exists = False
         context = {
             'does_exists': does_exists,
         }
     else:
         does_exists = True
-        search = searched_plant[0]
+        search = searched_product[0]
         context = {
             'does_exists': does_exists,
             'search': search
         }
 
-    return render(request, 'Plant/show_product_details.html', context)
+    return render(request, 'Product/show_product_details.html', context)
+#
+# def showDetails2(request, plant_id):
+#
+#     searched_plant = get_object_or_404(Plant, id=plant_id)
+#
+#     form = ReviewForm()
+#
+#     if request.method == "POST":
+#         form = ReviewForm(request.POST)
+#
+#         if form.is_valid:
+#             instance = form.save(commit=False)
+#             instance.user = request.user
+#             instance.save()
+#
+#             searched_plant.reviews.add(instance)
+#             searched_plant.save()
+#
+#     context = {
+#         'search': searched_plant,
+#         'form': form
+#     }
+#
+#
+#     return render(request, 'Plant/show_plant_details.html', context)
 
+@login_required
+def uploadProducts(request):
+    form = ProductForm()
+
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES)
+
+        if form.is_valid:
+            form.save()
+            return redirect('Product')
+
+    context = {
+        'form' : form
+    }
+
+    return render(request, 'Product/upload.html', context)
 
 @login_required
 def make_order(request, product_id):
@@ -117,19 +158,19 @@ def bkash_order(request, product_id):
     #return HttpResponseRedirect(reverse('cart'))
     return redirect('cart')
 
-@login_required
-def view_cart(request):
-    cart = Cart.objects.get(user=request.user)
 
+def view_cart(request):
+
+    cart = Cart.objects.get(user=request.user)
 
     total = 0
     for product in cart.product.all():
-        total += product.price
+         total += product.price
 
     context = {
 
         'cart':cart,
-        'product': product,
+        # 'plant':plant,
 
         'total' : total
     }
@@ -166,25 +207,6 @@ def delete_from_cart(request, product_id):
 
     return redirect('cart')
 
-@login_required
-def make_order(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
-    order = Order(user=request.user, product=product)
-    order.save()
-    print("Order done!")
-
-    cart = Cart.objects.get(user=request.user)
-    cart.product.remove(product)
-    cart.save()
-    print("Remove done!")
-
-    return redirect('cart')
-
-
-def test(request):
-    print(request.POST)
-
-    return redirect('Product')
 
 @login_required
 def my_orders(request):
@@ -208,3 +230,26 @@ def my_orders(request):
 
     }
     return render(request, 'Product/order.html', context)
+
+
+@login_required
+def make_order(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    order = Order(user=request.user, product=product)
+    order.save()
+    print("Order done!")
+
+    cart = Cart.objects.get(user=request.user)
+    cart.product.remove(product)
+    cart.save()
+    print("Remove done!")
+
+    return redirect('cart')
+
+
+def test(request):
+    print(request.POST)
+
+    return redirect('Product')
+
+
