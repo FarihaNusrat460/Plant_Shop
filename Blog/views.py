@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Blog
 from .forms import BlogForm
 from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -35,3 +36,13 @@ def insertBlog(request):
     }
 
     return render(request, 'Blog/InsertBlog.html', context)
+
+
+def showDetails(request, b_id):
+
+    searched_b = get_object_or_404(Blog, id=b_id)
+    context = {
+        'search': searched_b,
+
+    }
+    return render(request, 'Blog/show_blog_details.html', context)
