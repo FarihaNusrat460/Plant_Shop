@@ -54,16 +54,8 @@ def showDetails(request, product_id):
 
 def showDetails2(request, product_id):
 
-    #searched_product = get_object_or_404(Product, id=product_id)
-
-    #searched_product = Product.objects.get(id=product_id) #sure one return
-    #print(searched_product)
 
     searched_product = Product.objects.filter(id=product_id)  # many return
-
-    #searched_product = get_object_or_404(Product, id=product_id)
-    #print(searched_product)
-
 
 
     if len(searched_product) == 0:
@@ -80,31 +72,7 @@ def showDetails2(request, product_id):
         }
 
     return render(request, 'Product/show_product_details.html', context)
-#
-# def showDetails2(request, plant_id):
-#
-#     searched_plant = get_object_or_404(Plant, id=plant_id)
-#
-#     form = ReviewForm()
-#
-#     if request.method == "POST":
-#         form = ReviewForm(request.POST)
-#
-#         if form.is_valid:
-#             instance = form.save(commit=False)
-#             instance.user = request.user
-#             instance.save()
-#
-#             searched_plant.reviews.add(instance)
-#             searched_plant.save()
-#
-#     context = {
-#         'search': searched_plant,
-#         'form': form
-#     }
-#
-#
-#     return render(request, 'Plant/show_plant_details.html', context)
+
 
 @login_required
 def uploadProducts(request):
