@@ -12,8 +12,8 @@ from .forms import ProductForm, ReviewForm
 def showProducts(request):
 
     products = Product.objects.all()
-    if request.method == 'POST':
-        products= Product.objects.filter(product_name__icontains=request.POST['search'])
+    # if request.method == 'POST':
+    #     products= Product.objects.filter(product_name__icontains=request.POST['search'])
 
 
     context = {
@@ -246,7 +246,7 @@ def review_after_complete(request, product_id):
             searched_product.reviews.add(instance)
             searched_product.save()
 
-            return redirect('my-orders')
+            return redirect('Myorders')
 
     context = {
         'search': searched_product,

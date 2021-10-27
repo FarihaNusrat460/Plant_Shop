@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Registration/',user_views.registration),
+    path('Registration/',user_views.registration,name='Registration'),
     path('Homepage/',product_views.showHome,name='Homepage'),
     path('Product/',product_views.showProducts,name='Product'),
     path('Product/<int:product_id>', product_views.showDetails, name='detail_view'),
@@ -33,15 +33,15 @@ urlpatterns = [
     path('ShowBlogs/<int:b_id>', Blog_views.showDetails, name='detail_view'),
     path('InsertBlogs/', Blog_views.insertBlog,name='InsertBlogs'),
 
-                  path('cart/', product_views.view_cart, name='cart'),
+    path('cart/', product_views.view_cart, name='cart'),
 
-                  path('updatecart/<int:product_id>', product_views.update_cart, name='update-cart'),
+    path('updatecart/<int:product_id>', product_views.update_cart, name='update-cart'),
 
     path('deletefromcart/<int:product_id>', product_views.delete_from_cart, name='delete-from-cart'),
     path('orderproduct/<int:product_id>', product_views.make_order, name='order-product'),
 
     path('bkash/<int:product_id>', product_views.bkash_order, name='bkash-order-product'),
 
-    path('myorders/', product_views.my_orders, name='myorders'),
+    path('Myorders/', product_views.my_orders, name='Myorders'),
     path('accounts/',include('django.contrib.auth.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
