@@ -74,11 +74,13 @@
 
      </li>
 
-{#   <form method="POST" action="{% url 'Product' %}">#}
-{#                {% csrf_token %}#}
-{#              <input  type="search" name="search">#}
-{#              <button  type="submit">Search</button>#}
-{#            </form>#}
+    <form method="POST" action="{% url 'ShowBlogs' %}" >
+                    {% csrf_token %}
+
+                  <input  type="search" name="search">
+
+                  <button  type="submit">Search</button>
+            </form>
 
     </div>
   </div>
