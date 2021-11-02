@@ -5,7 +5,7 @@ from .models import Product,Cart,Order,Review
 
 from django.contrib.auth.decorators import login_required
 
-from .forms import ProductForm, ReviewForm
+from .forms import ReviewForm
 
 # Create your views here.
 
@@ -52,44 +52,7 @@ def showDetails(request, product_id):
     return render(request, 'Product/show_product_details.html', context)
 
 
-def showDetails2(request, product_id):
 
-
-    searched_product = Product.objects.filter(id=product_id)  # many return
-
-
-    if len(searched_product) == 0:
-        does_exists = False
-        context = {
-            'does_exists': does_exists,
-        }
-    else:
-        does_exists = True
-        search = searched_product[0]
-        context = {
-            'does_exists': does_exists,
-            'search': search
-        }
-
-    return render(request, 'Product/show_product_details.html', context)
-
-
-@login_required
-def uploadProducts(request):
-    form = ProductForm()
-
-    if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES)
-
-        if form.is_valid:
-            form.save()
-            return redirect('Product')
-
-    context = {
-        'form' : form
-    }
-
-    return render(request, 'Product/upload.html', context)
 
 @login_required
 def make_order(request, product_id):
@@ -126,7 +89,7 @@ def bkash_order(request, product_id):
     #return HttpResponseRedirect(reverse('cart'))
     return redirect('cart')
 
-
+@login_required
 def view_cart(request):
 
     cart = Cart.objects.get(user=request.user)
