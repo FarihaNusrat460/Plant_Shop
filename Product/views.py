@@ -12,8 +12,8 @@ from .forms import ProductForm, ReviewForm
 def showProducts(request):
 
     products = Product.objects.all()
-    # if request.method == 'POST':
-    #     products= Product.objects.filter(product_name__icontains=request.POST['search'])
+    if request.method == 'POST':
+        products= Product.objects.filter(product_name__icontains=request.POST['search'])
 
 
     context = {
