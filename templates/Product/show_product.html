@@ -6,25 +6,22 @@
 
 
    <center> <h1 style="color: black"> <b>Shop</b></h1></center><br>
-    <center><img src="https://tul.imgix.net/content/article/a_list_images/GREENASSEMBLEY-PRODUCTSHOOT-OCT2018-136.jpg?auto=format,compress&w=1200&h=630&fit=crop" hight="50" width="950" class="img-fluid" alt="Responsive image"></center><br><br>
+    <center><img src="https://tul.imgix.net/content/article/a_list_images/GREENASSEMBLEY-PRODUCTSHOOT-OCT2018-136.jpg?auto=format,compress&w=1200&h=630&fit=crop" hight="10" width="1300" class="img-fluid" alt="Responsive image"></center><br><br>
     <br>
     <br>
 
 
 
     <center><h2 style="color: black"></h2></center><br>
-    <p><h1><i>Whether you’re starting seeds, nurturing houseplants, or growing food indoors/outdoors, we have the helplines you need!
-    We have plants, seeds, gardening tools to create your garden. We have indoor/outdoor decors to enlighten your dream garden.<br>
-    So just sneak into our website to discover which one is right for you!</h1></p></i>
+    <p class = "text"><h3 class="ml-3"><i>Whether you’re starting seeds, nurturing houseplants, or growing food indoors/outdoors, we have the helplines you need!
+    We have plants, seeds, gardening tools to create your garden. We have indoor/ outdoor decors to enlighten your dream garden.<br><br>
+    So just sneak into our website to discover which one is right for you!</i></h3></p>
 
 
 
-    <p><h6>
-       <i> </i>
-    </p></h6><br>
     <br>
     <br>
-   <i><h2 style="color: black">All Products</i></h2><br>
+   <h2 class="mr-3 ml-3" style="color: black"><i>All Products</i><br></h2>
     <br>
 
 <div class="card-columns">
@@ -32,15 +29,15 @@
              <div class="card">
                 <img src="{{ p.picture.url }}" class="card-img-top" alt="..." height="300" width="250">
                 <div class="card-body">
-                  <h5 class="card-title"><h2>{{ p.id }}</h2></h5>
-                  <p class="card-text"> <h2>{{ p.product_name }}</h2></p>
-                    <p class="card-text"> <h3>{{ p.price }}</h3></p><br>
+                  <h5 class="card-title"><h3>{{ p.id }}</h3></h5>
+                  <p class="card-text"> <h4>{{ p.product_name }}</h4></p>
+                    <p class="card-text"><h3>Price:</h3> <h4>{{ p.price }} Taka</h4></p><br>
 
 
 {#                         http://127.0.0.1:8000/products/#}
                 <a href="{{ p.id }}">
 {#                     http://127.0.0.1:8000/products/product_id#}
-                    <button type="button" class="btn btn-outline-primary">Details</button>
+                    <button type="button" class="btn-primary">Details</button>
                 </a>
                     </div>
       </div>
