@@ -23,7 +23,7 @@ def registration(request):
             cart.save()
 
             # after a successful registration you can redirect to any page
-            return redirect('Product')
+            return redirect('Registration')
 
     context={
         'form' : form
